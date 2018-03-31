@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artiste index{% endblock %}
+
+{% block body %}
+    <h1>ghorillaz</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nickname</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artiste in artistes %}
+            <tr>
+                <td>{{ artiste.id }}</td>
+                <td>{{ artiste.nickname }}</td>
+                <td>{{ artiste.nom }}</td>
+                <td>
+                    <a href="{{ path('artiste_show', {'id': artiste.id}) }}">show</a>
+                    <a href="{{ path('artiste_edit', {'id': artiste.id}) }}">edit</a>
+                    <a href="{{ path('artiste_delete', {'id': artiste.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('artiste_new') }}">Create new</a>
+{% endblock %}
