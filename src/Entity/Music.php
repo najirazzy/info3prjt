@@ -31,4 +31,5 @@ class Music
      * @ORM\ManyToOne(targetEntity="App\Entity\Album",inversedBy="Music")
      */
     private $Album;
+    private $Albums;
 }
